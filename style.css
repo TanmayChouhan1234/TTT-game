@@ -92,37 +92,71 @@ p {
 @media (max-width: 600px) {
   body {
     background-color: #242933;
-    width: 800px;
+    width: 100%;
     padding: 20px;
     margin: auto;
+    font-family: Arial, sans-serif;
   }
+
   .container {
     margin: auto;
-    width: 600px;
-    /* border: 1px solid white; */
-    /* text-align: center; */
-    align-items: center;
+    width: 100%;
+    border: 1px solid white;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
+
   h1 {
     color: #fff;
     text-align: center;
     font-size: 2rem;
+    margin-bottom: 20px;
   }
 
-  .container button {
-    width: 130px;
-    height: 80px;
-    font-size: 1rem;
+  /* Grid layout for the Tic Tac Toe buttons */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Increased button size */
+    grid-template-rows: repeat(3, 100px); /* Increased button size */
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
+  .grid button {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem; /* Larger font size for better visibility */
+    background-color: #fff;
+    color: #242933;
+    border: 2px solid #242933;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Reset button style */
+  .reset {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Reset button with a simple background */
   .reset button {
     width: 180px;
     height: 50px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    background-color: #242933;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .reset button:hover {
+    background-color: #4c5c6d; /* Simple hover effect */
   }
 }
