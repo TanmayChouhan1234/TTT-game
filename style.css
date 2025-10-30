@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242933;
+  width: 800px;
+  padding: 20px;
+  margin: auto;
+  /* border: 1px solid red; */
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 1px #989393;
+}
+
+.container {
+  margin: auto;
+  width: 700px;
+  /* border: 1px solid white; */
+  /* text-align: center; */
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container button {
+  cursor: pointer;
+  width: 160px;
+  height: 100px;
+  gap: 30px;
+  box-shadow: 1px 1px 1px #989393;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  border: none;
+  font-size: 30px;
+}
+.container button:hover {
+  transform: translateY(-5px);
+  /* background: linear-gradient(135deg, #00d4ff, #0077ff); */
+  background-color: lightslategray;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(170, 173, 174, 0.034);
+}
+
+p {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #989393;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  width: 220px;
+  height: 55px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.reset button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 65, 108, 0.5);
+}
+
+.reset button:active {
+  transform: scale(1);
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: #242933;
+    width: 800px;
+    padding: 20px;
+    margin: auto;
+  }
+  .container {
+    margin: auto;
+    width: 600px;
+    /* border: 1px solid white; */
+    /* text-align: center; */
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px;
+  }
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .container button {
+    width: 130px;
+    height: 80px;
+    font-size: 1rem;
+  }
+
+  .reset button {
+    width: 180px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
