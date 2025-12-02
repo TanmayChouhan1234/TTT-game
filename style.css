@@ -152,36 +152,66 @@ h1 {
   transform: scale(1.07);
   box-shadow: 0 0 20px rgba(255, 120, 97, 0.9);
 }
-
 /* ------------------------------------
-   MOBILE RESPONSIVE
+   MOBILE RESPONSIVE (max-width: 350px)
 --------------------------------------*/
-@media (max-width: 480px) {
+@media (max-width: 350px) {
   body {
-    padding: 15px 10px; /* Adjust padding */
+    padding: 10px 8px; /* Balanced padding */
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
   h1 {
-    font-size: 2.1rem;
+    font-size: 1.8rem; /* Slightly larger for readability */
+    margin-bottom: 12px;
   }
 
+  #Turn {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  /* Scoreboard */
+  .scoreboard {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    height: 40px;
+  }
+
+  .scoreboard p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Game grid */
   .container {
     max-width: 100%;
-    gap: 12px;
+    gap: 10px; /* Adequate gap */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .cell {
-    font-size: 32px;
+    font-size: 28px;
+    border-radius: 10px;
+    padding: 0; /* Ensure no extra padding */
+    word-break: break-word; /* Prevent overflow */
   }
 
-  .scoreboard {
-    flex-direction: column;
-    gap: 8px;
+  /* Result text */
+  #Result {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    word-wrap: break-word;
   }
 
+  /* Reset button */
   .reset button {
-    width: 100%; /* Full width */
-    font-size: 1.1rem;
+    width: 100%;
+    font-size: 1rem;
     padding: 12px 0;
+    border-radius: 12px;
+    box-sizing: border-box;
   }
 }
