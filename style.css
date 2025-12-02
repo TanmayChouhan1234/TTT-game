@@ -5,50 +5,19 @@
   box-sizing: border-box;
 }
 
+/* ---------- BODY ---------- */
 body {
   background-color: #242933;
-  width: 800px;
+  max-width: 800px; /* FIXED: use max-width, not fixed width */
   padding: 20px;
   margin: auto;
-  /* border: 1px solid red; */
 }
 
+/* ----------- HEADING ----------- */
 h1 {
   color: #fff;
   text-align: center;
   text-shadow: 1px 1px 1px #989393;
-}
-
-.container {
-  margin: auto;
-  width: 700px;
-  /* border: 1px solid white; */
-  /* text-align: center; */
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 40px;
-}
-
-.container button {
-  cursor: pointer;
-  width: 160px;
-  height: 100px;
-  gap: 30px;
-  box-shadow: 1px 1px 1px #989393;
-  border-radius: 10px;
-  transition: all 0.5s ease;
-  border: none;
-  font-size: 30px;
-}
-.container button:hover {
-  transform: translateY(-5px);
-  /* background: linear-gradient(135deg, #00d4ff, #0077ff); */
-  background-color: lightslategray;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(170, 173, 174, 0.034);
 }
 
 p {
@@ -60,8 +29,44 @@ p {
   text-shadow: 1px 1px 1px #989393;
 }
 
+/* ----------- GAME GRID ----------- */
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 450px; /* FIX: Best size for tic-tac-toe and responsive */
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ALWAYS 3x3 */
+  gap: 15px;
+  justify-content: center;
+}
+
+/* ----------- GAME BUTTONS ----------- */
+.container button {
+  background-color: #eaeaea;
+  cursor: pointer;
+
+  /* PERFECT SQUARE BOXES */
+  aspect-ratio: 1 / 1;
+
+  width: 100%; /* Responsive square */
+  font-size: 40px;
+
+  border-radius: 10px;
+  border: 3px solid black;
+  transition: 0.3s ease;
+}
+
+.container button:hover {
+  background-color: lightslategray;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* ----------- RESET BUTTON ----------- */
 .reset {
   text-align: center;
+  margin-top: 25px;
 }
 
 .reset button {
@@ -74,50 +79,27 @@ p {
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
   transition: all 0.3s ease;
-  border: none;
 }
 
 .reset button:hover {
-  background: linear-gradient(135deg, #ff4b2b, #ff416c);
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 65, 108, 0.5);
 }
 
-.reset button:active {
-  transform: scale(1);
-}
-
-@media (max-width: 330px) {
-  body {
-    background-color: #242933;
-    width: 800px;
-    padding: 20px;
-    margin: auto;
-  }
-  .container {
-    margin: auto;
-    width: 600px;
-    /* border: 1px solid white; */
-    /* text-align: center; */
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 40px;
-  }
+/* ----------- MOBILE FIX (working design) ----------- */
+@media (max-width: 480px) {
   h1 {
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .container {
+    max-width: 300px; /* Shrink grid properly */
+    gap: 10px;
+    padding: 20px;
   }
 
   .container button {
-    width: 130px;
-    height: 80px;
-    font-size: 1rem;
+    font-size: 28px;
   }
 
   .reset button {
