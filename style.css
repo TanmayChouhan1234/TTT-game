@@ -15,7 +15,7 @@ body {
   padding: 30px 15px; /* horizontal padding for mobile */
   color: #fff;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll, allow vertical */
+  overflow: hidden; /* Prevent horizontal scroll, allow vertical */
 }
 
 h1 {
