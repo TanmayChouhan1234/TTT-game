@@ -6,8 +6,21 @@
     <link rel="stylesheet" href="style.css" />
     <title>Tic Tac Toe Game</title>
   </head>
+
   <body>
     <h1>Tic Tac Toe Game</h1>
+
+    <!-- TURN INDICATOR -->
+    <p id="Turn">Turn: X</p>
+
+    <!-- SCOREBOARD -->
+    <div class="scoreboard">
+      <p>X Wins: <span id="scoreX">0</span></p>
+      <p>O Wins: <span id="scoreO">0</span></p>
+      <p>Draws: <span id="scoreDraw">0</span></p>
+    </div>
+
+    <!-- GAME GRID -->
     <div class="container">
       <button class="cell" onclick="Btnclick(0)"></button>
       <button class="cell" onclick="Btnclick(1)"></button>
@@ -19,10 +32,15 @@
       <button class="cell" onclick="Btnclick(7)"></button>
       <button class="cell" onclick="Btnclick(8)"></button>
     </div>
+
+    <!-- RESULT TEXT -->
     <p id="Result"></p>
+
+    <!-- RESET BUTTON -->
     <div class="reset">
       <button id="Reset">Reset Game</button>
     </div>
+
+    <script src="./script.js"></script>
   </body>
-  <script src="./script.js"></script>
 </html>

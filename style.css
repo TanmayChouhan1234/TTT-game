@@ -1,110 +1,187 @@
+/* ------------------------------------
+   GLOBAL STYLES
+--------------------------------------*/
 * {
-  padding: 0;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-/* ---------- BODY ---------- */
 body {
-  background-color: #242933;
-  max-width: 800px; /* FIXED: use max-width, not fixed width */
-  padding: 20px;
+  background: linear-gradient(135deg, #1f1f2f, #13131d);
+  max-width: 850px;
   margin: auto;
-}
-
-/* ----------- HEADING ----------- */
-h1 {
+  padding: 30px 15px; /* horizontal padding for mobile */
   color: #fff;
-  text-align: center;
-  text-shadow: 1px 1px 1px #989393;
+  overflow-x: hidden; /* Prevent horizontal scroll, allow vertical */
 }
 
-p {
-  color: white;
+h1 {
   text-align: center;
-  font-size: 20px;
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00c6ff, 0 0 20px #0072ff;
+}
+
+#Turn {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00eaff;
   margin-bottom: 20px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #989393;
+  text-shadow: 0 0 8px #00eaff;
 }
 
-/* ----------- GAME GRID ----------- */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
+  flex-wrap: wrap; /* wrap if screen narrows */
+}
+
+.scoreboard p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e3f7ff;
+  flex: 1 1 120px; /* minimum width per item */
+  text-align: center;
+}
+
 .container {
   margin: auto;
   width: 100%;
-  max-width: 450px; /* FIX: Best size for tic-tac-toe and responsive */
-
+  max-width: 450px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ALWAYS 3x3 */
-  gap: 15px;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-/* ----------- GAME BUTTONS ----------- */
-.container button {
-  background-color: #eaeaea;
-  cursor: pointer;
+.cell {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
 
-  /* PERFECT SQUARE BOXES */
+  width: 100%;
   aspect-ratio: 1 / 1;
 
-  width: 100%; /* Responsive square */
-  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  border-radius: 10px;
-  border: 3px solid black;
-  transition: 0.3s ease;
+  font-size: 45px;
+  font-weight: 700;
+
+  color: #ffffff;
+  cursor: pointer;
+
+  transition: 0.25s ease-in-out;
+  backdrop-filter: blur(4px);
+  word-break: break-word; /* Prevent content overflow */
 }
 
-.container button:hover {
-  background-color: lightslategray;
-  color: #fff;
-  transform: translateY(-4px);
+.cell:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00eaff;
 }
 
-/* ----------- RESET BUTTON ----------- */
+.cell.pop {
+  animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.win {
+  background: linear-gradient(135deg, #00e676, #00c853) !important;
+  color: #ffffff !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 15px #00e676;
+}
+
+#Result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00ffae;
+  text-shadow: 0 0 10px #00ffae;
+  word-wrap: break-word; /* Prevent overflow */
+}
+
 .reset {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .reset button {
-  width: 220px;
-  height: 55px;
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  font-weight: 700;
+
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border-radius: 14px;
+
   color: #fff;
-  font-size: 1.2rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  box-shadow: 0 0 12px rgba(255, 91, 77, 0.6);
+
+  transition: 0.3s ease-in-out;
+  max-width: 100%; /* Allow button to shrink on smaller screens */
+  box-sizing: border-box;
 }
 
 .reset button:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 120, 97, 0.9);
 }
 
-/* ----------- MOBILE FIX (working design) ----------- */
+/* ------------------------------------
+   MOBILE RESPONSIVE
+--------------------------------------*/
 @media (max-width: 480px) {
+  body {
+    padding: 15px 10px; /* Adjust padding */
+  }
+
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
   .container {
-    max-width: 300px; /* Shrink grid properly */
-    gap: 10px;
-    padding: 20px;
+    max-width: 100%;
+    gap: 12px;
   }
 
-  .container button {
-    font-size: 28px;
+  .cell {
+    font-size: 32px;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 8px;
   }
 
   .reset button {
-    width: 180px;
-    height: 50px;
-    font-size: 1rem;
+    width: 100%; /* Full width */
+    font-size: 1.1rem;
+    padding: 12px 0;
   }
 }
