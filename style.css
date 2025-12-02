@@ -12,10 +12,10 @@ body {
   background: linear-gradient(135deg, #1f1f2f, #13131d);
   max-width: 850px;
   margin: auto;
-  padding: 30px 15px; /* horizontal padding for mobile */
+  padding: 30px 15px;
   color: #fff;
-  height: 100%;
-  overflow: hidden; /* Prevent horizontal scroll, allow vertical */
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -35,77 +35,62 @@ h1 {
   text-shadow: 0 0 8px #00eaff;
 }
 
+/* ------------------------------------
+   SCOREBOARD FIX (mobile height issue solved)
+--------------------------------------*/
 .scoreboard {
   display: flex;
   justify-content: space-around;
   background: rgba(255, 255, 255, 0.08);
-  padding: 15px;
+  padding: 10px 15px; /* FIX: reduced padding */
   border-radius: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 15px; /* FIX: reduced height gap */
   backdrop-filter: blur(10px);
   box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
-  flex-wrap: wrap; /* wrap if screen narrows */
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .scoreboard p {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e3f7ff;
-  flex: 1 1 120px; /* minimum width per item */
+  flex: 1 1 110px;
   text-align: center;
 }
 
+/* ------------------------------------
+   GAME GRID
+--------------------------------------*/
 .container {
   margin: auto;
   width: 100%;
-  max-width: 450px;
+  max-width: 360px; /* FIX: reduced max width */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 12px; /* FIX: gap reduced */
 }
 
 .cell {
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px;
-
-  width: 100%;
-  aspect-ratio: 1 / 1;
-
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 45px;
   font-weight: 700;
-
   color: #ffffff;
   cursor: pointer;
-
   transition: 0.25s ease-in-out;
   backdrop-filter: blur(4px);
-  word-break: break-word; /* Prevent content overflow */
 }
 
 .cell:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: scale(1.05);
   box-shadow: 0 0 12px #00eaff;
-}
-
-.cell.pop {
-  animation: pop 0.25s ease-out;
-}
-
-@keyframes pop {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 .win {
@@ -122,9 +107,11 @@ h1 {
   font-weight: 700;
   color: #00ffae;
   text-shadow: 0 0 10px #00ffae;
-  word-wrap: break-word; /* Prevent overflow */
 }
 
+/* ------------------------------------
+   RESET BUTTON
+--------------------------------------*/
 .reset {
   text-align: center;
   margin-top: 30px;
@@ -134,85 +121,63 @@ h1 {
   padding: 15px 40px;
   font-size: 1.3rem;
   font-weight: 700;
-
   border: none;
   border-radius: 14px;
-
   color: #fff;
   cursor: pointer;
-
   background: linear-gradient(135deg, #ff5e62, #ff9966);
   box-shadow: 0 0 12px rgba(255, 91, 77, 0.6);
-
   transition: 0.3s ease-in-out;
-  max-width: 100%; /* Allow button to shrink on smaller screens */
-  box-sizing: border-box;
 }
 
 .reset button:hover {
   transform: scale(1.07);
   box-shadow: 0 0 20px rgba(255, 120, 97, 0.9);
 }
-/* ------------------------------------
-   MOBILE RESPONSIVE (max-width: 350px)
---------------------------------------*/
-@media (max-width: 350px) {
-  body {
-    padding: 10px 8px; /* Balanced padding */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
 
-  h1 {
-    font-size: 1.8rem; /* Slightly larger for readability */
-    margin-bottom: 12px;
-  }
-
-  #Turn {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-  }
-
-  /* Scoreboard */
-  .scoreboard {
-    flex-direction: column;
-    gap: 6px;
-    padding: 12px 10px;
-    box-sizing: border-box;
-    height: 40px;
-  }
-
-  .scoreboard p {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  /* Game grid */
+@media (max-width: 400px) {
+  /* BOARD FIX */
   .container {
-    max-width: 100%;
-    gap: 10px; /* Adequate gap */
+    max-width: 310px;
+    /* padding: 10px; */
+  }
+
+  .board {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 100%;
   }
 
   .cell {
-    font-size: 28px;
-    border-radius: 10px;
-    padding: 0; /* Ensure no extra padding */
-    word-break: break-word; /* Prevent overflow */
+    width: 90px; /* FIX: perfect square */
+    height: 90px; /* FIX: perfect square */
+    font-size: 2rem; /* Text size perfect */
+  }
+
+  /* SCOREBOARD FIX */
+  .scoreboard {
+    margin-top: 10px;
+    padding: 10x;
+    margin-left: 10px;
+  }
+
+  /* Turn text fix */
+  #Turn {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 
   /* Result text */
   #Result {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    word-wrap: break-word;
+    font-size: 1.1rem;
   }
 
   /* Reset button */
   .reset button {
     width: 100%;
-    font-size: 1rem;
+    margin-top: 15px;
     padding: 12px 0;
-    border-radius: 12px;
-    box-sizing: border-box;
+    font-size: 1.1rem;
   }
 }
