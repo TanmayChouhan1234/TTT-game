@@ -14,6 +14,7 @@ body {
   margin: auto;
   padding: 30px 15px; /* horizontal padding for mobile */
   color: #fff;
+  height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scroll, allow vertical */
 }
 
